@@ -51,13 +51,27 @@ const workItems = [
       "Ad Management",
     ],
   },
+  {
+    title: "Uptymistx",
+    image: "/imgs/work/uptymistx-homepage.webp",
+    imageAlt: "Uptymistx website",
+    liveUrl: "https://uptymistxcarwashing.services/",
+    detailsUrl: "/work/uptymistx",
+    tags: [
+      "Web Development",
+      "Web Design",
+      "Branding",
+      "Graphic Design",
+      "SEO",
+    ],
+  },
 ];
 
 export function WorkSection() {
   return (
     <section
       id="work"
-      className="border-y border-white/10 bg-neutral-900/40 pt-20 pb-0 lg:pb-20"
+      className="border-y border-white/10 bg-neutral-900/40 pt-20 pb-0 lg:pb-25"
     >
       <div className="mx-auto w-full max-w-7xl">
         <h2 className="text-center text-5xl font-bold uppercase">My Work</h2>
@@ -65,7 +79,7 @@ export function WorkSection() {
           A few of the things I have built and grown:
         </h4>
 
-        <div className="mt-10 grid lg:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2">
           {workItems.map((item) => (
             <article
               key={item.title}
@@ -83,6 +97,7 @@ export function WorkSection() {
                   <ActionButtons
                     liveUrl={item.liveUrl}
                     detailsUrl={item.detailsUrl}
+                    liveOpensInNewTab={true}
                     containerClassName="mb-4 flex flex-wrap gap-1.5 text-sm"
                   />
                 </div>
@@ -93,11 +108,11 @@ export function WorkSection() {
             </article>
           ))}
 
-          <article className="relative overflow-hidden border border-white/10 bg-black/40">
+          <article className="relative overflow-hidden border border-white/10 bg-black/40 md:col-span-2">
             <img
               src="/imgs/gradient-bg2.webp"
               alt="Decorative gradient"
-              className="h-full w-full object-cover opacity-65 transition duration-500 hover:scale-105 hover:opacity-30"
+              className="h-80 lg:h-120 w-full object-cover opacity-65 transition duration-500 hover:scale-105 hover:opacity-30"
               loading="lazy"
             />
             <p className="absolute inset-0 flex items-center justify-center text-2xl md:text-4xl font-black uppercase text-white">

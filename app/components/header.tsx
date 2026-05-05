@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useLocation } from "react-router";
 
 export function Header() {
+  const location = useLocation();
   const [navOpen, setNavOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(88);
@@ -64,25 +66,34 @@ export function Header() {
     };
   }, []);
 
+  const isHomeRoute = location.pathname === "/";
+  const homeSectionHref = (hash: string) => (isHomeRoute ? hash : `/${hash}`);
+
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "#services", label: "My Services" },
-    { href: "#about", label: "About Me" },
-    { href: "#skills", label: "My Skills" },
-    { href: "#projects", label: "My Projects" },
-    { href: "#work", label: "My Work" },
+    { href: homeSectionHref("#services"), label: "My Services" },
+    { href: homeSectionHref("#about"), label: "About Me" },
+    { href: homeSectionHref("#skills"), label: "My Skills" },
+    { href: homeSectionHref("#projects"), label: "My Projects" },
+    { href: homeSectionHref("#work"), label: "My Work" },
+    { href: homeSectionHref("#testimonials"), label: "My Clients" },
     { href: "#contact", label: "Contact Me" },
   ];
 
   const desktopNavItems = navItems.filter((item) =>
-    ["#services", "#projects", "#work", "#contact"].includes(item.href),
+    [
+      homeSectionHref("#services"),
+      homeSectionHref("#projects"),
+      homeSectionHref("#work"),
+      "#contact",
+    ].includes(item.href),
   );
 
   const headerStateClasses = navOpen
     ? "shadow-none"
     : isScrolling
-      ? "backdrop-blur shadow-lg shadow-black/40 border-b border-white/10"
-      : "backdrop-blur shadow-none";
+      ? "shadow-lg shadow-black/40 border-b border-white/10"
+      : "shadow-none";
 
   const modalTopOffset = Math.max(headerHeight - 1, 0);
 
@@ -90,7 +101,7 @@ export function Header() {
     <>
       <header
         ref={headerRef}
-        className={`sticky top-0 z-50 bg-dark/95 transition-shadow duration-300 px-4 lg:px-0 ${headerStateClasses}`}
+        className={`sticky top-0 z-50 bg-dark/95 backdrop-blur transition-shadow duration-300 px-4 ${headerStateClasses}`}
       >
         <div className="mx-auto flex w-full container items-center justify-between py-4">
           <a href="/" aria-label="Go to top" className="w-16 sm:w-20">
@@ -175,7 +186,7 @@ export function Header() {
         {navOpen ? (
           <motion.div
             key="mobile-menu"
-            className="fixed inset-x-0 bottom-0 z-40 bg-dark/95 p-8"
+            className="fixed inset-x-0 bottom-0 z-40 bg-dark/95 backdrop-blur p-8"
             style={{
               top: `${modalTopOffset}px`,
               height: `calc(100dvh - ${modalTopOffset}px)`,
@@ -186,16 +197,16 @@ export function Header() {
             transition={{ duration: 0.44, ease: [0.22, 1, 0.36, 1] }}
           >
             <nav className="flex h-full items-center justify-end">
-              <ul className="flex list-none flex-col items-end gap-5">
+              <ul className="flex list-none flex-col items-end gap-3 ">
                 {navItems.map((item, index) => (
                   <li key={item.href}>
                     <a
                       href={item.href}
                       onClick={() => setNavOpen(false)}
-                      className="group inline-flex items-start gap-2 pl-4 pr-2 py-3 text-3xl md:text-6xl font-black uppercase tracking-[0.12em] transition hover:border-white hover:bg-light hover:text-dark"
+                      className="group inline-flex items-start gap-2 pl-4 pr-2 py-3 text-3xl md:text-4xl font-black uppercase tracking-[0.12em] transition hover:border-white hover:bg-light hover:text-dark"
                     >
                       <span>{item.label}</span>
-                      <span className="text-xl md:text-3xl opacity-60 -mt-2 group-hover:opacity-100 transition">
+                      <span className="text-xl md:text-2xl opacity-60 -mt-2 group-hover:opacity-100 transition">
                         {index + 1}
                       </span>
                     </a>

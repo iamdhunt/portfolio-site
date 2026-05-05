@@ -3,9 +3,8 @@ import { HomeIntro } from "../components/home-intro";
 import { ProjectsSection } from "../components/projects-section";
 import { ServicesSection } from "../components/services-section";
 import { SkillsSection } from "../components/skills-section";
+import { TestimonialsSection } from "../components/testimonials-section";
 import { WorkSection } from "../components/work-section";
-import { Header } from "~/components/header";
-import { Footer } from "../components/footer";
 
 export function Welcome() {
   return (
@@ -21,6 +20,8 @@ export function Welcome() {
       <ProjectsSection />
 
       <WorkSection />
+
+      <TestimonialsSection />
     </main>
   );
 }
