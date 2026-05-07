@@ -71,7 +71,7 @@ export function WorkSection() {
   return (
     <section
       id="work"
-      className="border-y border-white/10 bg-neutral-900/40 pt-20 pb-0 lg:pb-25"
+      className="border-y border-white/10 bg-neutral-900/40 pt-20 pb-0"
     >
       <div className="mx-auto w-full max-w-7xl">
         <h2 className="text-center text-5xl font-bold uppercase">My Work</h2>
@@ -83,17 +83,20 @@ export function WorkSection() {
           {workItems.map((item) => (
             <article
               key={item.title}
-              className="group relative overflow-hidden border border-white/10"
+              tabIndex={0}
+              className="group relative overflow-hidden border border-white/10 focus:outline-none"
             >
               <img
                 src={item.image}
                 alt={item.imageAlt}
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-110 group-hover:opacity-15"
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-110 group-hover:opacity-15 group-focus:scale-110 group-focus:opacity-15"
                 loading="lazy"
               />
-              <div className="absolute inset-0 flex flex-col justify-between p-5 opacity-0 transition duration-300 group-hover:opacity-100">
+              <div className="absolute inset-0 flex flex-col justify-between p-5 opacity-0 transition duration-300 group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100 group-focus-within:opacity-100">
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-5xl uppercase">{item.title}</h3>
+                  <h3 className="text-3xl lg:text-5xl uppercase">
+                    {item.title}
+                  </h3>
                   <ActionButtons
                     liveUrl={item.liveUrl}
                     detailsUrl={item.detailsUrl}

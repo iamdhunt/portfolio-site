@@ -196,7 +196,7 @@ export function Header() {
             exit={{ opacity: 0, y: -24 }}
             transition={{ duration: 0.44, ease: [0.22, 1, 0.36, 1] }}
           >
-            <nav className="flex h-full items-center justify-end">
+            <nav className="flex h-full items-start justify-end overflow-y-auto">
               <ul className="flex list-none flex-col items-end gap-3 ">
                 {navItems.map((item, index) => (
                   <li key={item.href}>
