@@ -12,4 +12,5 @@ export default [
   // Project Routes
   route("/projects/collectivv", "routes/projects/collectivv.tsx"),
   route("/projects/mememachine3000", "routes/projects/meme-machine-3000.tsx"),
+  route("/projects/grnlght", "routes/projects/grnlght.tsx"),
 ] satisfies RouteConfig;

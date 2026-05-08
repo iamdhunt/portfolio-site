@@ -6,10 +6,12 @@ const pageDescription =
 
 const pageContent = {
   title: "Collectivv",
-  role: "Founder · Creative Director · Designer · Developer",
+  role: "Founder · Creative Director · Full Stack Developer · UI/UX Designer · Brand Strategist · Marketing Strategist",
   tags: [
     "React",
+    "Typescript",
     "Full-Stack Development",
+    "UI/UX Design",
     "Branding",
     "Creative Direction",
     "Marketing",

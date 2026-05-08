@@ -9,6 +9,24 @@ import { TagPills } from "./ui/tag-pills";
 
 const projects = [
   {
+    title: "grnlght",
+    image: "/imgs/projects/grnlght/grnlght-full-timeline.webp",
+    imageAlt: "grnlght website",
+    liveUrl: "https://grnlght.co",
+    detailsUrl: "/projects/grnlght",
+    tags: [
+      "React",
+      "Typescript",
+      "Full-Stack Development",
+      "UI/UX Design",
+      "Saas",
+      "Branding",
+      "Creative Direction",
+      "Marketing",
+      "SEO",
+    ],
+  },
+  {
     title: "Collectivv",
     image: "/imgs/projects/collectivv-app-1.webp",
     imageAlt: "Collectivv website",
@@ -16,7 +34,9 @@ const projects = [
     detailsUrl: "/projects/collectivv",
     tags: [
       "React",
+      "Typescript",
       "Full-Stack Development",
+      "UI/UX Design",
       "Branding",
       "Creative Direction",
       "Marketing",
