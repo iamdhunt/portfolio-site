@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
@@ -77,6 +77,21 @@ export function ContentPageTemplate({
     const nextIndex = (activeGalleryIndex + 1) % galleryImages.length;
     setActiveGalleryIndex(nextIndex);
   };
+
+  useEffect(() => {
+    if (activeGalleryImage) {
+      const previousBodyOverflow = document.body.style.overflow;
+      const previousHtmlOverflow = document.documentElement.style.overflow;
+
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+
+      return () => {
+        document.body.style.overflow = previousBodyOverflow;
+        document.documentElement.style.overflow = previousHtmlOverflow;
+      };
+    }
+  }, [activeGalleryImage]);
 
   return (
     <main className="bg-dark text-light pb-20">

@@ -35,7 +35,7 @@ const pageContent = {
     {
       src: "/imgs/projects/grnlght/grnlght-task-management.webp",
       alt: "grnlght task management",
-      caption: "Task management view showcasing a task lifecycle.",
+      caption: "Task management view showcasing a full task lifecycle.",
     },
     {
       src: "/imgs/projects/grnlght/grnlght-revisions.webp",
